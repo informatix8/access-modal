@@ -1,0 +1,47 @@
+{
+  "name": "@informatix8/access-modal",
+  "version": "1.0.0",
+  "title": "Access Modal",
+  "description": "Modal user interactions",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:informatix8/access-modal.git"
+  },
+  "author": "Mjr",
+  "contributors": [
+    "Mjr <mjr@informatix.io>"
+  ],
+  "license": "ISC",
+  "main": "dist/access-modal.cjs.js",
+  "module": "dist/access-modal.esm.js",
+  "browser": "dist/access-modal.all.umd.js",
+  "dependencies": {
+    "lodash.merge": "^4.6.1",
+    "lodash.template": "^4.4.0",
+    "short-unique-id": "^1.1.1"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.5.5",
+    "jshint": "^2.10.2",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.12.4",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-filesize": "^6.1.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "serve": "^11.0.1",
+    "ub-jsdoc": "^1.7.3"
+  },
+  "scripts": {
+    "dev": "npm-run-all --parallel _start _watch",
+    "build": "rollup -c && npm run _lint && npm run _jsdoc",
+    "_start": "serve public",
+    "_watch": "rollup -c -w",
+    "_lint_global": "jshint ./src",
+    "_lint": "node ./node_modules/jshint/dist/jshint.js ./src",
+    "_jsdoc": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc.conf.json"
+  },
+  "files": [
+    "dist"
+  ]
+}

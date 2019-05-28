@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Access Modal Demo</title>
+        <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="access-modal.css"></link>
+        <style type="text/css">
+            .access-modal .access-modal-body p:last-child {
+                margin-bottom: 0;
+            }
+
+            .access-modal .test-modal-one .access-modal-body p {
+                line-height: 1.8;
+            }
+
+            .test-modal-two .access-modal-body p {
+                line-height: 1.5;
+            }
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class="container">
+            <div class="py-5">
+                <button id="trigger1" class="btn btn-primary">Open Modal 1</button>
+            </div>
+            <div class="py-5">
+                <h2>Access Modal Demo</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                </div>
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">First name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Last name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="bundle.js"></script>
+    <script type="text/javascript">
+        (function (AccessModal) {
+            var accessModal1, accessModal2;
+
+            accessModal1 = new AccessModal({
+                focusAfterClose: '#firstName',
+                focusAfterOpen: '#username',
+                overlayOpacity: 0.4,
+                template:
+                '<header class="access-modal-header">' +
+                '<h2 class="access-modal-title"><%= title %></h2>' +
+                '<button class="btn access-modal-close access-modal-close-button">&times;</button>' +
+                '<div class="access-modal-description">Modal one description</div>' +
+                '</header>' +
+                '<div class="access-modal-body">' +
+                '<button class="btn btn-primary" id="trigger2">Open modal 2</button><br><br>' +
+                '<input type="text" class="form-control" id="username" placeholder="Username"><br>' +
+                '<%= mainContent %>' +
+                '<div class="access-modal-description access-modal-close-button-description"><%= closeDescription %></div>' +
+                '</div>' +
+                '<footer class="access-modal-footer"><button class="btn access-modal-close-button">Dismiss</button></footer>',
+                templateVars: {
+                    title: 'Dynamic Value From Object',
+                    closeDescription: 'Close modal one.',
+                    mainContent: '<p>I should not obtrude my affairs so much on the notice of my readers if very particular inquiries had not been made by my townsmen concerning my mode of life, which some would call impertinent, though they do not appear to me at all impertinent, but, considering the circumstances, very natural and pertinent. Some have asked what I got to eat; if I did not feel lonesome; if I was not afraid; and the like. Others have been curious to learn what portion of my income I devoted to charitable purposes; and some, who have large families, how many poor children I maintained. I will therefore ask those of my readers who feel no particular interest in me to pardon me if I undertake to answer some of these questions in this book. In most books, the I, or first person, is omitted; in this it will be retained; that, in respect to egotism, is the main difference. We commonly do not remember that it is, after all, always the first person that is speaking. I should not talk so much about myself if there were anybody else whom I knew as well. Unfortunately, I am confined to this theme by the narrowness of my experience. Moreover, I, on my side, require of every writer, first or last, a simple and sincere account of his own life, and not merely what he has heard of other men’s lives; some such account as he would send to his kindred from a distant land; for if he has lived sincerely, it must have been in a distant land to me. Perhaps these pages are more particularly addressed to poor students. As for the rest of my readers, they will accept such portions as apply to them. I trust that none will stretch the seams in putting on the coat, for it may do good service to him whom it fits.</p>'
+                },
+                callbacks: {
+                    postOpen: function () {
+                        document.getElementById('trigger2').addEventListener('click', function () {
+                            accessModal2.open();
+                        });
+                    }
+                },
+                cssClassMap: {
+                    content: 'test-modal-one access-modal-content',
+                }
+            });
+
+            document.getElementById('trigger1').addEventListener('click', function () {
+                accessModal1.open();
+            });
+
+            accessModal2 = new AccessModal({
+                focusAfterClose: '#username',
+                overlayOpacity: 0.8,
+                template:
+                '<header class="access-modal-header">' +
+                '<h2 class="access-modal-title"><%= title %> </h2>' +
+                '<button class="btn access-modal-close access-modal-close-button">&times;</button>' +
+                '<div class="access-modal-description">Modal Two description</div>' +
+                '</header>' +
+                '<div class="access-modal-body">' +
+                '<input type="text" class="form-control" id="test-modal-two-field" placeholder="Modal Two Field"><br>' +
+                '<%= mainContent %>' +
+                '<div id="my-close-description" class="access-modal-description access-modal-close-button-description"><%= closeDescription %></div>' +
+                '</div>' +
+                '<footer class="access-modal-footer"><button class="btn access-modal-close-button">Dismiss</button></footer>',
+                templateVars: {
+                    title: 'Modal Two Dynamic Content',
+                    closeDescription: 'Close modal two.',
+                    mainContent: '<p>I should not obtrude my affairs so much on the notice of my readers if very particular inquiries had not been made by my townsmen concerning my mode of life, which some would call impertinent, though they do not appear to me at all impertinent, but, considering the circumstances, very natural and pertinent. Some have asked what I got to eat; if I did not feel lonesome; if I was not afraid; and the like.</p>'
+                },
+                cssClassMap: {
+                    content: 'test-modal-two access-modal-content',
+                }
+            });
+        }(window.AccessModal));
+    </script>
+
+    </body>
+</html>

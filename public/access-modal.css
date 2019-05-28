@@ -1,0 +1,145 @@
+.access-modal,
+.access-modal *,
+.access-modal *::before,
+.access-modal *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.access-modal {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1050; }
+  .access-modal.access-modal-opened {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .access-modal .access-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  .access-modal .access-modal-content {
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-height: calc(100vh - 2rem);
+    max-width: calc(100vw - 2rem);
+    position: relative; }
+    .access-modal .access-modal-content .access-modal-close {
+      position: absolute;
+      right: 0;
+      top: 0; }
+      .access-modal .access-modal-content .access-modal-close [class*=access-icon] {
+        font-weight: 700; }
+    .access-modal .access-modal-content .access-modal-header {
+      background-color: #fff;
+      padding: 2.5rem 2rem 1.5rem;
+      position: relative; }
+    .access-modal .access-modal-content .access-modal-title {
+      color: #353535;
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.625rem;
+      margin: 0; }
+    .access-modal .access-modal-content .access-modal-body {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      line-height: 1.5rem;
+      overflow-y: auto;
+      padding: 0 2rem 2rem;
+      position: relative; }
+    .access-modal .access-modal-content .access-modal-footer {
+      background: #f6f6f6;
+      padding: 1rem; }
+      .access-modal .access-modal-content .access-modal-footer .access-button {
+        margin-bottom: 0; }
+  .access-modal .access-modal-tabs {
+    border-bottom: 1px solid #ededed;
+    position: relative; }
+    .access-modal .access-modal-tabs::after {
+      height: 2.5rem;
+      width: 2.9375rem;
+      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#fff));
+      background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      content: '';
+      right: 0;
+      top: 0;
+      position: absolute; }
+    .access-modal .access-modal-tabs::before {
+      height: 2.5rem;
+      width: 2.9375rem;
+      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(#fff));
+      background: -webkit-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      background: -o-linear-gradient(right, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+      content: '';
+      left: 0;
+      top: 0;
+      position: absolute;
+      z-index: 1; }
+    .access-modal .access-modal-tabs .access-tabs {
+      padding-left: 2rem; }
+    .access-modal .access-modal-tabs .access-tab:last-child::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: -2rem;
+      width: 2rem;
+      height: 0.0625rem; }
+  .access-modal.access-modal-with-tabs .access-modal-header {
+    padding-bottom: 0.5rem; }
+  .access-modal.access-modal-with-tabs .access-modal-body {
+    padding-top: 1.5rem; }
+
+.access-modal-body-hidden {
+  overflow: hidden; }
+
+.access-modal-description {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 0.0625rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; }
+
+@media (max-width: 48rem) {
+    .access-modal.access-modal-full .access-modal-content {
+      height: 100vh;
+      margin: 0;
+      max-height: none;
+      max-width: none; } }
+
+@media (min-width: 48rem) {
+      .access-modal .access-modal-content {
+        max-height: calc(100vh - 4rem);
+        max-width: calc(100vw - 4rem);
+        width: 37.5rem; } }
