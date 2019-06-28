@@ -2,9 +2,11 @@
 
 A modal service with accessibility considerations.
 
+Examples and the API are in the [documentation](https://access-modal.com)
+
 ## Features
-- **Esc** closes the modal
-- **Shift+Tab** brings focus to the browser chrome once modal is open, i.e. it is the first element in the DOM
+- <kbd>Esc</kbd> closes the modal
+- <kbd>Shift</kbd> + <kbd>Tab</kbd> brings focus to the browser chrome once modal is open, i.e. it is the first element in the DOM
     - *Note:* tabbing should move focus within the DOM in a loop - the only way out to the browser is with **Shift+Tab** when you’re at the first focusable element in the DOM.
 - **Role** on the chrome must be `dialog` or `alertdialog` where `alertdialog` signifies more importance
 - **Role=document** on the modal content so screen readers begin reading it. Optional, but on by default.
