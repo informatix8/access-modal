@@ -42,7 +42,7 @@
     "_jsdoc": "node ./node_modules/jsdoc/jsdoc.js -c jsdoc.conf.json"
   },
   "files": [
-    "dist"
+    "dist",
     "src"
   ]
 }
