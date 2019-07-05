@@ -2,9 +2,6 @@ import ShortUniqueId from 'short-unique-id';
 import merge from 'lodash.merge';
 import template from 'lodash.template';
 
-/**
- *
- */
 class AccessModal {
 
     /**
