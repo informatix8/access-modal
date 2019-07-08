@@ -3404,9 +3404,6 @@ var AccessModal = (function () {
 
 	var lodash_template = template;
 
-	/**
-	 *
-	 */
 	class AccessModal {
 
 	    /**
@@ -3434,7 +3431,7 @@ var AccessModal = (function () {
 	     @param {String} [options.cssClassMap.chrome="access-modal access-modal-opened"] - Chrome (main) element
 	     @param {String} [options.cssClassMap.overlay="access-modal-overlay"] - Overlay element
 	     @param {String} [options.cssClassMap.content="access-modal-content"] - Content element (contains interior element)
-	     @param {String} [options.cssClassMap.everythingElse="access-modal-everything-else"] - Aria hidden element, will contain all body content when AccessDropdown is opened
+	     @param {String} [options.cssClassMap.everythingElse="access-modal-everything-else"] - Aria hidden element, will contain all body content when AccessModal is opened
 	     @param {Object} [options.callbacks] - User supplied functions to execute at given stages of the component lifecycle
 	     @param {Object} [options.focusableSelectorList] - Selector of elements, that may get focus
 	     @param {Function} options.callbacks.preOpen
